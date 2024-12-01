@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-9uka9i4vi01fr%3h)xh76k4ubokzh!ba6psl8ai$aw&wqj1@15
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -90,11 +91,14 @@ WSGI_APPLICATION = 'licitaciones.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'licitaciones',  # Nombre de la base de datos
+        'USER': 'postgres',    # Tu usuario de PostgreSQL
+        'PASSWORD': 'Licitacion123',  # Tu contraseña de PostgreSQL
+        'HOST': 'localhost',     # Host (localhost si está en tu máquina local)
+        'PORT': '5432',          # Puerto (5432 es el predeterminado para PostgreSQL)
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

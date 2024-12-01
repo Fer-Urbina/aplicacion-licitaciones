@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -11,9 +12,13 @@ class UsuarioListCreateView(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
 
-class PerfilUsuarioView(APIView):
+class PerfilUsuarioView(RetrieveUpdateAPIView):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_object(self):
+        return self.request.user
     def get(self, request):
         """Obtener información del perfil del usuario autenticado."""
         usuario = request.user
