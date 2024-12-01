@@ -1,0 +1,14 @@
+# Ignorar entornos virtuales
+env/
+
+# Archivos de sistema
+*.pyc
+__pycache__/
+
+# Archivos temporales
+*.log
+*.sqlite3
+*.tmp
+
+# Archivos de configuración local
+.env
