@@ -1,0 +1,8 @@
+from django.urls import path
+from .views import LicitacionListCreateView, LicitacionDetailView, CategoriaListCreateView
+
+urlpatterns = [
+    path('', LicitacionListCreateView.as_view(), name='licitaciones-list-create'),
+    path('<int:pk>/', LicitacionDetailView.as_view(), name='licitacion-detail'),
+    path('categorias/', CategoriaListCreateView.as_view(), name='categorias-list-create'),
+]
