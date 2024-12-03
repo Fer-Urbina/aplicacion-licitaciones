@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9uka9i4vi01fr%3h)xh76k4ubokzh!ba6psl8ai$aw&wqj1@15'
+SECRET_KEY = os.getenv('SECRET_KEY', 'dfkjfksdflsdlfksd5566854241dfdsdfsdgd326s')  # Replace fallback-secret-key with any random string as a fallback
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
@@ -99,6 +99,8 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+
+print("DATABASES config:", DATABASES)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
