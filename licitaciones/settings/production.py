@@ -1,6 +1,6 @@
 from .settings import *  # Importar toda la configuración base
 
-DEBUG = False  # Desactiva el modo DEBUG para producción
+DEBUG = os.getenv('DEBUG', 'True') == 'True'  # Desactiva el modo DEBUG para producción
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost'] # Cambia esto según el dominio o IP de tu servidor en producción
 
