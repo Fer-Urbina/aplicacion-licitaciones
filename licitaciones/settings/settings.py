@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'rest_framework',  # Para DRF
     'usuarios',         # App para gestionar usuarios y autenticación
     'gestion_licitaciones',     # App para licitaciones
