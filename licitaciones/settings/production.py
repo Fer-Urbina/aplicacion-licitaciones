@@ -11,6 +11,8 @@ DATABASES = {
     'default': dj_database_url.config(conn_max_age=600)
 }
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 # Configuración de seguridad
 SECURE_HSTS_SECONDS = 31536000  # Habilitar HSTS
 SECURE_SSL_REDIRECT = True
